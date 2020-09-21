@@ -14,13 +14,13 @@
 */
 
 #include <SPI.h>
-#include <Ethernet.h>
-#include <PubSubClient.h>
+#include <WiFiNINA.h>  // enable WiFi for MKR1010
+#include <PubSubClient.h> // Connect and publish to the MQTT broker
 
 // Update these with values suitable for your network.
 byte mac[]    = {  0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0xED };
-IPAddress ip(172, 16, 0, 100);
-IPAddress server(172, 16, 0, 2);
+IPAddress ip(192.168.1.170);
+IPAddress server(192.168.1.123);
 
 void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("Message arrived [");
